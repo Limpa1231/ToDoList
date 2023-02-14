@@ -42,6 +42,7 @@ function displayMessages() {
             if (item.todo === valueLabel){
                 item.checked = !item.checked;
                 localStorage.setItem('todo', JSON.stringify(toDoList));
+                addMessage.value = "";
             }
         })
     });
