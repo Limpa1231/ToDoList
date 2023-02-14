@@ -10,7 +10,6 @@ if (localStorage.getItem('todo')) {
 };
 
 addButton.addEventListener('click', function(){
-    
     let newTodo = {
         todo: addMessage.value,
         checked: false,
@@ -19,6 +18,7 @@ addButton.addEventListener('click', function(){
     toDoList.push(newTodo);
      displayMessages();
     localStorage.setItem('todo', JSON.stringify(toDoList));
+    addMessage.value = "";
 });
 
 
@@ -31,7 +31,7 @@ function displayMessages() {
         <input type = 'checkbox' id = 'item_${i}' ${item.checked ? 'checked' : ''}>
         <label for = 'item_${i}' class = '${item.important ? 'important' : ''}'>${item.todo}</label>
         </li>`;
-
+        
         todo.innerHTML = displayMessage;
     });
 
@@ -42,7 +42,6 @@ function displayMessages() {
             if (item.todo === valueLabel){
                 item.checked = !item.checked;
                 localStorage.setItem('todo', JSON.stringify(toDoList));
-                addMessage.value = "";
             }
         })
     });
